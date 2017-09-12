@@ -3,8 +3,6 @@ angular.module('video-player')
 .component('app', {
   templateUrl: 'src/templates/app.html',
   controller: function(youTube) {
-    this.videos = exampleVideoData;
-    this.currentVideo = exampleVideoData[0];
     this.selectVideo = (selectedVideo) => {
       this.currentVideo = selectedVideo;
     };
@@ -12,10 +10,12 @@ angular.module('video-player')
       this.videos = responseArray;
       this.currentVideo = responseArray[0];
     };
+    //populate with default data;
+    // this.searchResults(exampleVideoData);
     this.onClick = (selectedVideo) => {
       this.selectVideo(selectedVideo);
     };
     this.searchString = 'koalas';
-    this.$onInit = () => youTube.search(this.searchString, this.searchResults);
+    youTube.search(this.searchString, this.searchResults);
   }
 });

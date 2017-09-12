@@ -11,6 +11,11 @@ angular.module('video-player')
         'key': YOUTUBE_API_KEY,
         'part': 'snippet'
       }
-    }).then((response) => searchResults(response.data.items));
+    //destructuring response object which has data property
+    })
+    .then(({data}) => searchResults(data.items))
+    .catch(({data}) => data.error.errors.forEach((err) => {
+      console.log(err.message);
+    }));
   };
 });
