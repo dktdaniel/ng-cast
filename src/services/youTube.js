@@ -1,4 +1,4 @@
 angular.module('video-player')
-.service('youTube', function(){
-  // TODO
+.service('youTube', function() {
+  this.search = (str, cb) => console.log(str);
 });
