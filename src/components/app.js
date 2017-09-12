@@ -8,7 +8,10 @@ angular.module('video-player')
     this.selectVideo = (selectedVideo) => {
       this.currentVideo = selectedVideo;
     };
-    this.searchResults = function() {};
+    this.searchResults = (responseArray) => {
+      this.videos = responseArray;
+      this.currentVideo = responseArray[0];
+    };
     this.onClick = (selectedVideo) => {
       this.selectVideo(selectedVideo);
     };

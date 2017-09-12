@@ -8,6 +8,6 @@ angular.module('video-player')
     searchString: '<'
   },
   controller: function(youTube) {
-    this.search = (searchString) => youTube.search(searchString, function(){});
+    this.search = (searchString) => youTube.search(searchString, this.result);
   }
 });
