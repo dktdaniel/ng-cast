@@ -4,7 +4,8 @@ angular.module('video-player')
   templateUrl: 'src/templates/app.html',
   controller: function() {
     this.videos = exampleVideoData;
-    // console.log('videos from', this.videos);
+    this.currentVideo = exampleVideoData[0];
+    console.log('videos from', this.currentVideo);
     this.onClick = function() {
       console.log('clicked');
     };
