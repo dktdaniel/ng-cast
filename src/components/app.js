@@ -2,7 +2,7 @@ angular.module('video-player')
 
 .component('app', {
   templateUrl: 'src/templates/app.html',
-  controller: function() {
+  controller: function(youTube) {
     this.videos = exampleVideoData;
     this.currentVideo = exampleVideoData[0];
     this.selectVideo = (selectedVideo) => {
@@ -15,6 +15,7 @@ angular.module('video-player')
     this.onClick = (selectedVideo) => {
       this.selectVideo(selectedVideo);
     };
-    this.searchString = '';
+    this.searchString = 'koalas';
+    this.$onInit = () => youTube.search(this.searchString, this.searchResults);
   }
 });
