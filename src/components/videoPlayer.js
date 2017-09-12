@@ -2,7 +2,7 @@ angular.module('video-player')
 
 .component('videoPlayer', {
   bindings: {
-    currentVideo: '<'
+    video: '<'
   },
   templateUrl: 'src/templates/videoPlayer.html',
   controller: function() {

@@ -9,5 +9,7 @@ angular.module('video-player')
     this.onClick = function() {
       console.log('clicked');
     };
+    this.selectVideo = function() {};
+    this.searchResults = function() {};
   }
 });
