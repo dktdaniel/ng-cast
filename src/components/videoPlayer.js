@@ -3,7 +3,8 @@ angular.module('video-player')
 .component('videoPlayer', {
   bindings: {
     video: '<',
-    selectVideo: '<'
+    selectVideo: '<',
+    viewCount: '<'
   },
   templateUrl: 'src/templates/videoPlayer.html',
   controller: function() {

@@ -5,6 +5,7 @@ angular.module('video-player')
   controller: function(youTube) {
     this.selectVideo = (selectedVideo) => {
       this.currentVideo = selectedVideo;
+      console.log(this.currentVideo.id.videoId);
     };
     this.searchResults = (responseArray) => {
       this.videos = responseArray;
@@ -15,7 +16,10 @@ angular.module('video-player')
     this.onClick = (selectedVideo) => {
       this.selectVideo(selectedVideo);
     };
+    this.getViewCount = (viewCount) => {
+      this.viewCount = viewCount;
+    };
     this.searchString = 'koalas';
-    youTube.search(this.searchString, this.searchResults);
+    youTube.search(this.searchString, this.searchResults, this.getViewCount);
   }
 });
