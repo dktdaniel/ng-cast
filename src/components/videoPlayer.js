@@ -4,7 +4,8 @@ angular.module('video-player')
   bindings: {
     video: '<',
     selectVideo: '<',
-    viewCount: '<'
+    viewCount: '<',
+    channelTitle: '<'
   },
   templateUrl: 'src/templates/videoPlayer.html',
   controller: function() {

@@ -19,18 +19,21 @@ angular.module('video-player')
     }));
   };
   
-  this.getViews = (currentVideo, getViewCount) => {
+  this.getViews = (currentVideo, getViewCount, getChannelTitle) => {
     $http({
       method: 'GET',
       url: 'https://www.googleapis.com/youtube/v3/videos',
       params: {
         'key': YOUTUBE_API_KEY,
-        'part': 'statistics',
+        'part': 'statistics,snippet',
         'id': currentVideo
       }
     //destructuring response object which has data property
     })
-    .then(({data}) => getViewCount(data.items[0].statistics.viewCount))
+    .then(({data}) => {
+      getViewCount(data.items[0].statistics.viewCount);
+      getChannelTitle(data.items[0].snippet.channelTitle);
+    })
     .catch(({data}) => data.error.errors.forEach((err) => {
       console.log(err.message);
     }));
